@@ -27,11 +27,12 @@ public void rent (String user) throws Exception {
   if (this.charge <= 20) {
     throw new Exception("Scooter needs to charge");
   } else if (this.isBroken) {
-    throw new Exception("Scooter needs repaire");
+    throw new Exception("Scooter needs repair");
   }
 
 this.station = null;
 this.user = user;
+System.out.println("Scooter successfully rented by " + this.user + ".");
 
 }
 
@@ -41,6 +42,7 @@ this.user = user;
 public void dock(String station) {
   this.station = station;
   this.user = null; 
+  System.out.println("Scooter successfully docked at " + this.station + ".");
 }
 
 
