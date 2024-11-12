@@ -14,6 +14,11 @@ public class ScooterApp {
     }
 
 
+    // This public method is required to be able to return registeredUsers in main since the field is private. 
+    public Map<String, User> getRegisteredUsers() {
+      return registeredUsers;
+  }
+
     // Registering a new user 
     public void registerUser(String username, String password, int age) throws Exception {
         if (registeredUsers.containsKey(username)) {
