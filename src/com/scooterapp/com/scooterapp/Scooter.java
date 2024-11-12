@@ -1,9 +1,10 @@
+package com.scooterapp;
  // Setting up the class and it's properties
 
 public class Scooter {
     
     private String station;
-    private User user;
+    private String username;
     private final int serial;
     private int nextSerial;
     private int charge;
@@ -13,7 +14,7 @@ public class Scooter {
 
 public Scooter(String station) {
   this.station = station; 
-  this.user = null;
+  this.username = null;
   this.serial = nextSerial++;
   this.charge = 100; 
   this.isBroken = false; 
@@ -24,14 +25,14 @@ public String getStation() {
   return station;
 }
 
-public User getUser() {
-  return user;
+public String getUsername() {
+  return username;
 }
 
 
 // Method to rent a scooter 
 
-public void rent (User user) throws Exception {
+public void rent (String username) throws Exception {
   if (this.charge <= 20) {
     throw new Exception("Scooter needs to charge");
   } else if (this.isBroken) {
@@ -39,9 +40,9 @@ public void rent (User user) throws Exception {
   }
 
 this.station = null;
-this.user = user;
+this.username = username;
 
-System.out.println("Scooter successfully rented by " + this.user + ".");
+System.out.println("Scooter successfully rented by " + this.username + ".");
 
 }
 
@@ -50,7 +51,7 @@ System.out.println("Scooter successfully rented by " + this.user + ".");
 // Method to dock a scooter 
 public void dock(String station) {
   this.station = station;
-  this.user = null; 
+  this.username = null; 
   System.out.println("Scooter successfully docked at " + this.station + ".");
 }
 

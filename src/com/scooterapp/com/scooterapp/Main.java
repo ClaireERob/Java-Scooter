@@ -1,3 +1,5 @@
+package com.scooterapp;
+
 public class Main {
         public static void main(String[] args) {
             try {
@@ -6,23 +8,21 @@ public class Main {
     
                 // Registering users
                 app.registerUser("claire_robson", "password123", 26);
-                app.registerUser("bobby_robson", "password456", 2);
+                app.registerUser("bobby_robson", "password456", 23);
     
                 // Log in a user
                 app.loginUser("claire_robson", "password123");
     
                 // Create scooters at stations
-                Scooter scooter1 = app.createScooter("Rutherglen");
-                Scooter scooter2 = app.createScooter("Bridgeton");
+                Scooter scooter1 = app.createScooter("Central Station");
+                Scooter scooter2 = app.createScooter("Argyle Street");
     
                 // Rent a scooter
-                User claire = app.getRegisteredUsers().get("claire_robson");
-                if (claire != null) {
-                    app.rentScooter(scooter1, claire);
-                } else {
-                    System.out.println("User claire_robson not found.");
-                }
+                app.rentScooter(scooter1, "claire_robson" );
     
+                // Dock a scooter
+                app.dockScooter(scooter1, "Queen Street");
+                
                 // Print current status
                 app.print();
     

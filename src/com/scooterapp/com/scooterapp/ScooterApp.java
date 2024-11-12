@@ -1,3 +1,4 @@
+package com.scooterapp;
 import java.util.*;
 
 public class ScooterApp {
@@ -81,20 +82,23 @@ public class ScooterApp {
 
 
     //Renting a scooter
-    public void rentScooter(Scooter scooter, User user) throws Exception {
+    public void rentScooter(Scooter scooter, String username) throws Exception {
         if (!stations.containsKey(scooter.getStation())) {
             throw new Exception("No such station.");
         }
-        scooter.rent(user);
+        scooter.rent(username);
     }
 
     // Printing lists of registered users and also stations
     public void print() {
         System.out.println("Registered Users:");
-        registeredUsers.keySet().forEach(username -> System.out.println(username));
-
-        System.out.println("Stations and Scooters:");
-        stations.forEach((station, scooters) -> 
-            System.out.println(station + ": " + scooters.size() + " scooters"));
+        for (User user : registeredUsers.values()) {
+            System.out.println(user.getUsername());
+        }
+        
+        System.out.println("Scooter Stations:");
+        for (String station : stations.keySet()) {
+            System.out.println(station + ": " + stations.get(station).size() + " scooters");
+        }
     }
 }
