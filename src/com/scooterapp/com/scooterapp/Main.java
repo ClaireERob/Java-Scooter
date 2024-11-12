@@ -18,16 +18,19 @@ public class Main {
                 Scooter scooter2 = app.createScooter("Argyle Street");
     
                 // Rent a scooter
-                app.rentScooter(scooter1, "claire_robson" );
+                app.rentScooter(scooter1, "claire_robson");
+                app.rentScooter(scooter2, "bobby_robson");
     
                 // Dock a scooter
                 app.dockScooter(scooter1, "Queen Street");
+                app.dockScooter(scooter2, "Central Station");
                 
                 // Print current status
                 app.print();
     
                 // Log out user
                 app.logoutUser("claire_robson");
+                app.logoutUser("bobby_robson");
     
             } catch (Exception e) {
                 e.printStackTrace();
