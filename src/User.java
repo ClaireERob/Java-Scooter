@@ -1,8 +1,8 @@
 public class User {
-  String username; 
-  String password; 
-  int age; 
-  boolean loggedIn;
+  private String username; 
+  private String password; 
+  private int age; 
+  public boolean loggedIn;
 
   public User(String username, String password, int age) {
     this.username = username;
@@ -11,20 +11,37 @@ public class User {
     this.loggedIn = false;
   }
 
-public void login(String password)throws Exception{
-  if (this.password.equals(password)) {
-    this.loggedIn = true;
-    System.out.println(this.username + " has logged in.");
-  } else {
-    throw new Exception("Incorrect password");
+
+  public boolean isLoggedIn() {
+    return loggedIn;
   }
+  
+  public String getUsername() {
+    return username;
+  }
+  
+  
+  public int getAge() {
+    return age;
+  }
+
+// Logging in method
+public void login(String password)throws Exception{
+  if (!this.password.equals(password)) {
+    throw new Exception("Incorrect password.");
+}
+this.loggedIn = true;
+System.out.println(username + " has logged in.");
 }
 
 
+// Logging out method 
 public void logout() {
   this.loggedIn = false; 
-  System.out.println(this.username + " has logged out.");
+  System.out.println(username + " has logged out.");
 }
+
+
 
 }
 
