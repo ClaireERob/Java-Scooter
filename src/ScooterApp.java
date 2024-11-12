@@ -1,29 +1,36 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map; 
+
+
 public class ScooterApp {
-  public static void main(String[] args) {
-    try {
-    // Creating new instances of a User and a Scooter
-    User user = new User("Claire", "password123", 26);
-    Scooter scooter = new Scooter("Glasgow Central");
+  
+  private List<User> registeredUsers;
 
-    // Logging the user in
-    user.login("password123");
+  private Map<String, Integer> stations;
 
-    // Renting the scooter
-    scooter.rent("Claire");
+  public ScooterApp() {
+    this.registeredUsers = new ArrayList<>();
+    this.stations = new HashMap<>();
+  }
+   
+public void registerUser(String username, String password, int age) throws Exception {
 
-    // Docking the scooter back to a station
-    scooter.dock("Glasgow Central");
-
-    // Log the user out
-    user.logout();
-
-  } catch (Exception e) {
-        System.out.println(e.getMessage());
-        }
+  for (User user : registeredUsers) {
+    if (user.username.equals(username)) {
+      throw new Exception("Already registered")
     }
   }
 
+  if(age<18) {
+    throw new Exception("Too young to register")
+  }
 
+  User newUser = new User(username, password, age);
+  registeredUsers.add(newUser);
+}
+
+
+  }
   
-
-
