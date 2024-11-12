@@ -14,7 +14,7 @@ public class Scooter {
 
 public Scooter(String station) {
   this.station = station; 
-  this.username = null;
+  this.username = null; 
   this.serial = nextSerial++;
   this.charge = 100; 
   this.isBroken = false; 
